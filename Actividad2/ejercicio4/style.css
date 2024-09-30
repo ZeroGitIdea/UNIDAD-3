@@ -1,0 +1,21 @@
+/* Estilo para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background-color: #4CAF50; /* Color de fondo para encabezados */
+    color: white; /* Color del texto */
+}
+td {
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+}
+td:hover {
+    opacity: 0.8; /* Efecto al pasar el ratón */
+}
