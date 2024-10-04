@@ -1,6 +1,7 @@
 <?php
 /* Obtener la fecha desde la URL si está definida */
-$fecha_actual = new DateTime(); // Esto restaurará la funcionalidad original
+$fecha_param = isset($_GET['fecha']) ? $_GET['fecha'] : date('Y-m-d'); // Valor por defecto
+
 $fecha_actual = new DateTime($fecha_param); // Crea un objeto DateTime con la fecha proporcionada
 
 /* Obtener el mes y el día */
@@ -61,18 +62,21 @@ if ($hora >= 6 && $hora < 12) {
     <title>Mi Portafolio</title>
     <link rel="stylesheet" href="style.css"> <!-- Ruta al archivo CSS -->
     <style>
-        body {
+        html, body {
             background-color: <?php echo $color_fondo; ?>; /* Color de fondo según la hora */
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
+            margin: 0; /* Elimina el margen por defecto */
+            display: flex; /* Utiliza Flexbox para el cuerpo */
+            flex-direction: column; /* Coloca los elementos en una columna */
         }
         .cabecera {
             width: 100%;
             height: 300px;
             background: url('<?php echo $imagen_estacion; ?>') no-repeat center center;
             background-size: cover;
+        }
+        /* Asegúrate de que el contenido flexible ocupe el espacio restante */
+        .flex {
+            flex: 1; /* Hace que el contenido ocupe el espacio restante */
         }
     </style>
 </head>
@@ -86,17 +90,17 @@ if ($hora >= 6 && $hora < 12) {
             <li><a href="#about">Sobre Mí</a></li>
             <li><a href="#skills">Habilidades</a></li>
             <li><a href="#projects">Proyectos</a></li>
-            <li><a href="#contact">Contacto</a></li>
+            <li><a href="#units">Prácticas</a></li>
         </ul>
     </nav>
 </header>
 
-<section id="about">
+<section class="flex" id="about">
     <h2>Sobre Mí</h2>
-    <p>Hola, soy Alejandro Carrasco Castellano, curso 2º de DAW en I.E.S. Gran Capitán, tengo experiencia en varios lenguajes de programación. Soy perfeccionista y enfocado en lo que hago.</p>
+    <p>Hola, soy Alejandro Carrasco Castellano, curso 2º de DAW en I.E.S. Gran Capitán. Tengo experiencia en varios lenguajes de programación y soy perfeccionista, enfocado en lo que hago.</p>
 </section>
 
-<section id="skills">
+<section class="flex" id="skills">
     <h2>Habilidades</h2>
     <div class="skills">
         <p><strong>Lenguajes:</strong> HTML, CSS, JavaScript, Java, PHP</p>
@@ -105,27 +109,22 @@ if ($hora >= 6 && $hora < 12) {
     </div>
 </section>
 
-<section id="projects">
+<section class="flex" id="projects">
     <h2>Proyectos</h2>
     <div class="projects">
         <div class="project">
             <h3>Proyecto 1</h3>
             <img src="images/proyecto1.png" alt="Proyecto 1" class="images">
             <p>Acabo de hacer unos cuantos bucles en DWEC.</p>
-            <a href="https://github.com/ZeroGitIdea/DWEC/blob/main/UD1_CLIENTE/ACTIVIDADES/UD1/ejercicio1/js/index.js" target="_blank">Ver en GitHub</a>
+            <a class="boton" href="https://github.com/ZeroGitIdea/DWEC/blob/main/UD1_CLIENTE/ACTIVIDADES/UD1/ejercicio1/js/index.js" target="_blank">Ver en GitHub</a>
         </div>
     </div>
 </section>
 
-<section id="contact">
-    <h2>Contacto</h2>
-    <div class="contact">
-        <form action="#" method="POST">
-            <input type="text" name="name" placeholder="Tu nombre" required>
-            <input type="email" name="email" placeholder="Tu correo" required>
-            <textarea name="message" placeholder="Escribe tu mensaje" required></textarea>
-            <input type="submit" value="Enviar">
-        </form>
+<section class="flex" id="units">
+    <h2>Prácticas</h2>
+    <div class="unit">
+        <a class="boton boton-practicas" href="/DWES/Config/conf.php" target="_blank">Ver Prácticas</a>
     </div>
 </section>
 
