@@ -1,4 +1,6 @@
 <?php
+
+date_default_timezone_set('Europe/Madrid');
 /* Obtener la fecha desde la URL si está definida */
 $fecha_param = isset($_GET['fecha']) ? $_GET['fecha'] : date('Y-m-d'); // Valor por defecto
 
